@@ -37,15 +37,15 @@ const Form = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-            <label>name</label>
+            <label>Name</label>
             <input name='name' value={data.name} type='text' onChange={handleChange} />
         </div>
         <div>
-            <label>description</label>
+            <label>Description</label>
             <input name='description' value={data.description} type='text' onChange={handleChange} />
         </div>
         <div>
-            <label>price</label>
+            <label>Price</label>
             <input name='price' value={data.price} type='number' onChange={handleChange} />
         </div>
         <button type='submit'>create</button>
