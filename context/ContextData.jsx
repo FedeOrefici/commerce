@@ -9,7 +9,6 @@ const ContextDataProvider = ({children}) => {
     const handleAdd = (data) => {
         setProducts(prevProducts => [...prevProducts, data])
     }
-    
 
     return (
         <ContextData.Provider value={{handleAdd, products}}>

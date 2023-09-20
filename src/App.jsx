@@ -1,11 +1,17 @@
 import Crud from "./Crud"
+import Card from "./components/Card"
 
 function App() {
 
 
   return (
     <div>
-     <Crud />
+      <div>
+        <Crud />
+      </div>
+     <div>
+      <Card />
+     </div>
     </div>
   )
 }
