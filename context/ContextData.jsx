@@ -11,14 +11,17 @@ const ContextDataProvider = ({children}) => {
     }
 
     const handleDelete = (id) => {
-        setProducts(products => products.filter((item) => item.id !== id))
-        
+        setProducts(products => products.filter((item) => item.id !== id))   
+    }
+
+    const handleEdit = (id) => {
+        console.log('edit');
     }
 
     console.log(products)
 
     return (
-        <ContextData.Provider value={{handleAdd, products, handleDelete}}>
+        <ContextData.Provider value={{handleAdd, products, handleDelete, handleEdit}}>
             {children}
         </ContextData.Provider>
     )
