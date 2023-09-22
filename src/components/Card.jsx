@@ -3,7 +3,7 @@ import { ContextData } from '../../context/ContextData'
 
 const Card = () => {
 
-    const {products, handleDelete} = useContext(ContextData)
+    const {products, handleDelete, handleEdit} = useContext(ContextData)
 
 
   return (
@@ -14,7 +14,7 @@ const Card = () => {
             <p>{pd.description}</p>
             <p>{pd.price}</p>
             <button onClick={() => handleDelete(pd.id)}>delete</button>
-            <button>edit</button>
+            <button onClick={() => handleEdit(pd.id)}>edit</button>
         </div>
       ))}
     </>
