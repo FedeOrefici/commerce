@@ -5,9 +5,8 @@ import { ContextData } from '../../context/ContextData'
 const Form = () => {
 
     const { handleAdd } = useContext(ContextData)
-    const idGen = idgenerator()
+
     const [data, setData] = useState({
-        id: idGen,
         name: '',
         description: '',
         price: ''
@@ -22,7 +21,12 @@ const Form = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        handleAdd(data)
+        const idGen = idgenerator()
+        const newData = {
+            ...data,
+            id: idGen,
+        }
+        handleAdd(newData)
         setData({
             name: '',
             description: '',

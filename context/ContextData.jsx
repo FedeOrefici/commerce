@@ -15,6 +15,8 @@ const ContextDataProvider = ({children}) => {
         
     }
 
+    console.log(products)
+
     return (
         <ContextData.Provider value={{handleAdd, products, handleDelete}}>
             {children}
