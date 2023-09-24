@@ -11,9 +11,10 @@ const Edit = () => {
   return (
     <div>
       <p>edit component</p>
-      <p>{dataEdit.name}</p>
-      <p>{dataEdit.description}</p>
-      <p>{dataEdit.price}</p>
+      <form>
+        <input type='text' value={dataEdit.name} name='name' />
+        <button>edit</button>
+      </form>
     </div>
   )
 }
