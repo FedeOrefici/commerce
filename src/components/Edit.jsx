@@ -6,15 +6,14 @@ import { ContextData } from '../../context/ContextData'
 const Edit = () => {
 
   const {dataEdit} = useContext(ContextData)
-  console.log(dataEdit, 'desde edit')
+  console.log(dataEdit, 'desde edit');
 
   return (
     <div>
-      {dataEdit && dataEdit?.map((item) => {
-        <div key={item.id}>
-        <p>{item.name}</p>
-        </div>
-      })}
+      <p>edit component</p>
+      <p>{dataEdit.name}</p>
+      <p>{dataEdit.description}</p>
+      <p>{dataEdit.price}</p>
     </div>
   )
 }

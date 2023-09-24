@@ -5,7 +5,7 @@ export const ContextData = createContext()
 const ContextDataProvider = ({children}) => {
 
     const [products, setProducts] = useState([])
-    const [dataEdit, setDataEdit] = useState([])
+    const [dataEdit, setDataEdit] = useState({})
     
     const handleAdd = (data) => {
         setProducts(prevProducts => [...prevProducts, data])
