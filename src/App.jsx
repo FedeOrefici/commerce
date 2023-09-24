@@ -1,5 +1,6 @@
 import Crud from "./Crud"
 import Card from "./components/Card"
+import Edit from "./components/Edit"
 
 function App() {
 
@@ -9,9 +10,15 @@ function App() {
       <div>
         <Crud />
       </div>
+
      <div>
       <Card />
      </div>
+
+     <div>
+      <Edit />
+     </div>
+     
     </div>
   )
 }

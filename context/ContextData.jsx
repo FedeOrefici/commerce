@@ -5,6 +5,7 @@ export const ContextData = createContext()
 const ContextDataProvider = ({children}) => {
 
     const [products, setProducts] = useState([])
+    const [dataEdit, setDataEdit] = useState({})
     
     const handleAdd = (data) => {
         setProducts(prevProducts => [...prevProducts, data])
@@ -15,13 +16,14 @@ const ContextDataProvider = ({children}) => {
     }
 
     const handleEdit = (id) => {
-        console.log('edit');
+        let dataFind = products.find((data) => data.id === id)
+        setDataEdit(dataFind)
     }
 
     console.log(products)
 
     return (
-        <ContextData.Provider value={{handleAdd, products, handleDelete, handleEdit}}>
+        <ContextData.Provider value={{handleAdd, products, handleDelete, handleEdit, dataEdit}}>
             {children}
         </ContextData.Provider>
     )
