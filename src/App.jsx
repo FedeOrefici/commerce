@@ -1,24 +1,13 @@
-import Crud from "./Crud"
-import Card from "./components/Card"
-import Edit from "./components/Edit"
+import Home from "../views/Home"
+import Navbar from "./components/Navbar"
 
 function App() {
 
 
   return (
     <div>
-      <div>
-        <Crud />
-      </div>
-
-     <div>
-      <Card />
-     </div>
-
-     <div>
-      <Edit />
-     </div>
-     
+      <Navbar />
+      <Home />
     </div>
   )
 }
