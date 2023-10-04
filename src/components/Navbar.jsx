@@ -3,7 +3,11 @@
 const Navbar = () => {
   return (
     <div>
-      navbar
+      <ul>
+        <li>home</li>
+        <li>products</li>
+        <li>favorites</li>
+      </ul>
     </div>
   )
 }
