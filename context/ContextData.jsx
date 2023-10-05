@@ -7,7 +7,7 @@ export const ContextData = createContext()
 const ContextDataProvider = ({children}) => {
 
     const [products, setProducts] = useState([])
-
+    const [favorites, setFavorites] = useState([])
 
     useEffect(() => {
         const axiosData = async () => {
@@ -22,19 +22,15 @@ const ContextDataProvider = ({children}) => {
         axiosData()
     }, [])
 
+    const addFavs = () => {
+        console.log('add to favs');
+    }
     
-    const handleAdd = (data) => {
-        setProducts(prevProducts => [...prevProducts, data])
-    }
 
-    const handleDelete = (id) => {
-        setProducts(products => products.filter((item) => item.id !== id))   
-    }
-
-    console.log(products)
+    
 
     return (
-        <ContextData.Provider value={{handleAdd, products, handleDelete, products}}>
+        <ContextData.Provider value={{addFavs, products}}>
             {children}
         </ContextData.Provider>
     )
