@@ -22,10 +22,6 @@ const ContextDataProvider = ({children}) => {
         axiosData()
     }, [])
 
-
-    
-
-
     const addFavs = (id) => {
         const findProduct = products?.drinks?.find((prod) => prod.idDrink === id)
         if(findProduct){
@@ -35,13 +31,17 @@ const ContextDataProvider = ({children}) => {
         }
         return setFavorites((prevDrink) => [...prevDrink, findProduct])
     }
+
+    const delFavs = (id) => {
+        setFavorites((prevFavorites) => prevFavorites.filter((fav) => fav.idDrink !== id))
+    }
     
-    console.log(favorites)
+    console.log(favorites);
 
     
 
     return (
-        <ContextData.Provider value={{addFavs, products}}>
+        <ContextData.Provider value={{addFavs, products, favorites, delFavs}}>
             {children}
         </ContextData.Provider>
     )
