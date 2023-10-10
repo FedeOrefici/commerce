@@ -22,10 +22,21 @@ const ContextDataProvider = ({children}) => {
         axiosData()
     }, [])
 
-    const addFavs = () => {
-        console.log('add to favs');
+
+    
+
+
+    const addFavs = (id) => {
+        const findProduct = products?.drinks?.find((prod) => prod.idDrink === id)
+        if(findProduct){
+            if(favorites.some((fav) => fav.idDrink === findProduct.idDrink)){
+                return
+            }     
+        }
+        return setFavorites((prevDrink) => [...prevDrink, findProduct])
     }
     
+    console.log(favorites)
 
     
 
