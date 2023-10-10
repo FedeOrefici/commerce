@@ -28,10 +28,15 @@ const ContextDataProvider = ({children}) => {
 
     const addFavs = (id) => {
         const findProduct = products?.drinks?.find((prod) => prod.idDrink === id)
-        findProduct ? setFavorites(findProduct) : console.log('no se encuentra el ID') 
-        
+        if(findProduct){
+            if(favorites.some((fav) => fav.idDrink === findProduct.idDrink)){
+                return
+            }     
+        }
+        return setFavorites((prevDrink) => [...prevDrink, findProduct])
     }
     
+    console.log(favorites)
 
     
 
