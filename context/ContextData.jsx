@@ -8,6 +8,7 @@ const ContextDataProvider = ({children}) => {
 
     const [products, setProducts] = useState([])
     const [favorites, setFavorites] = useState([])
+    const [favs, setFavs] = useState(false)
 
     useEffect(() => {
         const axiosData = async () => {
@@ -29,11 +30,13 @@ const ContextDataProvider = ({children}) => {
                 return
             }     
         }
-        return setFavorites((prevDrink) => [...prevDrink, findProduct])
+        setFavorites((prevDrink) => [...prevDrink, findProduct])
+        setFavs(true)
     }
 
     const delFavs = (id) => {
         setFavorites((prevFavorites) => prevFavorites.filter((fav) => fav.idDrink !== id))
+        setFavs(false)
     }
     
     console.log(favorites);
@@ -41,7 +44,7 @@ const ContextDataProvider = ({children}) => {
     
 
     return (
-        <ContextData.Provider value={{addFavs, products, favorites, delFavs}}>
+        <ContextData.Provider value={{addFavs, products, favorites, delFavs, favs}}>
             {children}
         </ContextData.Provider>
     )
