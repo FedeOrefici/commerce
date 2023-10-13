@@ -13,7 +13,7 @@ const Card = () => {
      {products?.drinks?.map((product) => (
         <div key={product.idDrink} className="bg-slate-300 w-[300px] h-[400px] border rounded p-4">
             <div onClick={()=> addFavs(product.idDrink)} className='cursor-pointer'>
-              {favs ? <span>favorito</span>
+              {product.idDrink === favs ? <span>favorito</span>
               : <span>no favorito</span>} 
             </div>
             <p>{product.strGlass}</p>
