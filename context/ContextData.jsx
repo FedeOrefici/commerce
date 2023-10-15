@@ -40,7 +40,7 @@ const ContextDataProvider = ({children}) => {
         setFavs(false)
     }
 
-
+    console.log(filteredData, 'aca data filtrada');
     
 
     return (

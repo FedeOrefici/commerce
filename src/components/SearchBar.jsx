@@ -9,7 +9,7 @@ const SearchBar = () => {
   
 
   const handleSearch = () => {
-    let filterData = products?.drinks?.map((prod) => prod.strGlass.toLowerCase().includes(searchDrink.toLowerCase()))
+    let filterData = products?.drinks?.filter((prod) => prod.strGlass.toLowerCase().includes(searchDrink.toLowerCase()))
     console.log(filterData, 'aca busqueda');
     setFilteredData(filterData);
   }
