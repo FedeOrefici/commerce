@@ -10,6 +10,7 @@ const ContextDataProvider = ({children}) => {
     const [favorites, setFavorites] = useState([])
     const [favs, setFavs] = useState(false)
     const [filteredData, setFilteredData] = useState([])
+    const [isSearching, setIsSearching] = useState(false)
 
     useEffect(() => {
         const axiosData = async () => {
@@ -40,9 +41,6 @@ const ContextDataProvider = ({children}) => {
         setFavs(false)
     }
 
-    console.log(filteredData, 'aca data filtrada');
-    
-
     return (
         <ContextData.Provider value={{
             addFavs,
@@ -51,7 +49,9 @@ const ContextDataProvider = ({children}) => {
             delFavs,
             favs,
             setFilteredData,
-            filteredData}}>
+            filteredData,
+            setIsSearching,
+            isSearching}}>
             {children}
         </ContextData.Provider>
     )
