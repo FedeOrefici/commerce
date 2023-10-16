@@ -10,15 +10,13 @@ const SearchBar = () => {
 
   const handleSearch = () => {
     setIsSearching(true)
-    
     let filterData = products?.drinks?.filter((prod) => 
     prod.strGlass.toLowerCase().includes(searchDrink.toLowerCase()))
-
     setFilteredData(filterData)
-    
+    setSearchDrink('')
     setTimeout(() => {
       setIsSearching(false)
-    }, 2000)
+    }, 1500)
   }
 
   return (

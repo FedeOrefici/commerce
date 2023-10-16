@@ -17,13 +17,15 @@ const ContextDataProvider = ({children}) => {
             try {
                 const endpoint = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s'
                 const response = await axios.get(endpoint)
-                setProducts(response.data)
+                setProducts(response?.data)
             } catch (error) {
                 console.log(error.message)
             }
         }
         axiosData()
     }, [])
+
+    console.log(products);
 
     const addFavs = (id) => {
         const findProduct = products?.drinks?.find((prod) => prod.idDrink === id)
