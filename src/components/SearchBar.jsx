@@ -3,20 +3,21 @@ import { ContextData } from '../../context/ContextData'
 
 const SearchBar = () => {
 
-  const {products, setFilteredData} = useContext(ContextData)
+  const {products, setFilteredData, setIsSearching} = useContext(ContextData)
   
   const [searchDrink, setSearchDrink] = useState('')
   
 
   const handleSearch = () => {
-    let filterData = products?.drinks?.filter((prod) => prod.strGlass.toLowerCase().includes(searchDrink.toLowerCase()))
-    console.log(filterData, 'aca busqueda');
-    setFilteredData(filterData);
+    setIsSearching(true)
+    let filterData = products?.filter((prod) => 
+    prod.name.toLowerCase().includes(searchDrink.toLowerCase()))
+    setFilteredData(filterData)
+    setSearchDrink('')
+    setTimeout(() => {
+      setIsSearching(false)
+    }, 1500)
   }
-
-
-
-
 
   return (
     <div className='flex items-center justify-center w-[350px]'>
