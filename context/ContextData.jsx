@@ -8,7 +8,6 @@ const ContextDataProvider = ({children}) => {
 
     const [products, setProducts] = useState([])
     const [favorites, setFavorites] = useState([])
-    const [favs, setFavs] = useState(false)
     const [filteredData, setFilteredData] = useState([])
     const [isSearching, setIsSearching] = useState(false)
 
@@ -17,7 +16,14 @@ const ContextDataProvider = ({children}) => {
             try {
                 const endpoint = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s'
                 const response = await axios.get(endpoint)
-                setProducts(response?.data)
+                const drinks = response?.data?.drinks?.map((item) => ({
+                    id: item.idDrink,
+                    name: item.strGlass,
+                    image: item.strDrinkThumb,
+                    description: item.strInstructions,
+                    isFavorite: false,
+                }))
+                setProducts(drinks)
             } catch (error) {
                 console.log(error.message)
             }
@@ -25,22 +31,30 @@ const ContextDataProvider = ({children}) => {
         axiosData()
     }, [])
 
-    console.log(products);
+    console.log(products, 'ACA productos');
 
     const addFavs = (id) => {
-        const findProduct = products?.drinks?.find((prod) => prod.idDrink === id)
+        const findProduct = products?.find((prod) => prod.id === id)
         if(findProduct){
-            if(favorites.some((fav) => fav.idDrink === findProduct.idDrink)){
+            if(favorites.some((fav) => fav.id === findProduct.id)){
                 return
             }     
         }
+        findProduct.isFavorite = true;
         setFavorites((prevDrink) => [...prevDrink, findProduct])
-        setFavs(true)
+
     }
 
     const delFavs = (id) => {
-        setFavorites((prevFavorites) => prevFavorites.filter((fav) => fav.idDrink !== id))
-        setFavs(false)
+       setFavorites((prevFavorites) => prevFavorites.filter((fav) => fav.id !== id))
+       setProducts((prevProducts) => {
+        return prevProducts.map((product) => {
+            if(product.id === id) {
+                return {...product, isFavorite: false}
+            }
+            return product;
+        })
+       })
     }
 
     return (
@@ -49,7 +63,6 @@ const ContextDataProvider = ({children}) => {
             products,
             favorites,
             delFavs,
-            favs,
             setFilteredData,
             filteredData,
             setIsSearching,
