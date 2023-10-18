@@ -31,8 +31,6 @@ const ContextDataProvider = ({children}) => {
         axiosData()
     }, [])
 
-    console.log(products, 'ACA productos');
-
     const addFavs = (id) => {
         const findProduct = products?.find((prod) => prod.id === id)
         if(findProduct){
