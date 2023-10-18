@@ -1,5 +1,6 @@
 import Card from "../src/components/Card"
 import Navbar from "../src/components/Navbar"
+import Paginate from "../src/components/Paginate"
 import SearchBar from "../src/components/SearchBar"
 
 
@@ -16,6 +17,7 @@ const Home = () => {
       <div className="bg-slate-500 w-full h-screen flex items-center justify-center">
         <Card />
       </div>
+      <Paginate />
     </div>
   )
 }
