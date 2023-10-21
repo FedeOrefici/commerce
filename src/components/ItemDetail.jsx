@@ -10,9 +10,6 @@ const ItemDetail = () => {
 
     const item = products.find((drink) => drink.id === id)
 
-    console.log(item);
-    
-
   return (
     <div>
         <Navbar /> 
