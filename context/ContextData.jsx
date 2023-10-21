@@ -10,7 +10,18 @@ const ContextDataProvider = ({children}) => {
     const [favorites, setFavorites] = useState([])
     const [filteredData, setFilteredData] = useState([])
     const [isSearching, setIsSearching] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
 
+    //paginate
+    const totalItems = products.length
+    const elementPerPage = 5
+    const totalPages = Math.ceil(totalItems / elementPerPage)
+    //calculate pages
+    const startIdx = (currentPage - 1) * elementPerPage
+    const endIdx = startIdx + elementPerPage
+    const currentItems = products.slice(startIdx, endIdx)
+
+    //get data fron API, prod arr.
     useEffect(() => {
         const axiosData = async () => {
             try {
@@ -31,6 +42,7 @@ const ContextDataProvider = ({children}) => {
         axiosData()
     }, [])
 
+    //add favs
     const addFavs = (id) => {
         const findProduct = products?.find((prod) => prod.id === id)
         if(findProduct){
@@ -43,6 +55,7 @@ const ContextDataProvider = ({children}) => {
 
     }
 
+    //del favs
     const delFavs = (id) => {
        setFavorites((prevFavorites) => prevFavorites.filter((fav) => fav.id !== id))
        setProducts((prevProducts) => {
@@ -55,6 +68,7 @@ const ContextDataProvider = ({children}) => {
        })
     }
 
+
     return (
         <ContextData.Provider value={{
             addFavs,
@@ -64,7 +78,11 @@ const ContextDataProvider = ({children}) => {
             setFilteredData,
             filteredData,
             setIsSearching,
-            isSearching}}>
+            isSearching, 
+            currentPage,
+            setCurrentPage,
+            totalPages,
+            currentItems}}>
             {children}
         </ContextData.Provider>
     )
