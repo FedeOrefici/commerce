@@ -17,7 +17,7 @@ const Paginate = () => {
     }
 
   return (
-    <div>
+    <div className='bg-violet-500 text-yellow-400 w-full p-4 flex items-center justify-center gap-4'>
       <button onClick={handlePrev}>prev</button>
       <p>{currentPage}</p>
       <button onClick={handleNext}>next</button>
