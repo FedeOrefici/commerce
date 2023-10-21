@@ -15,14 +15,14 @@ const ItemDetail = () => {
 
   return (
     <div>
-        <Navbar />
-       
-           { <div key={item.id}>
-            <p>{item.name}</p>
-            <p>{item.description}</p>
-            <img src={item.image} />
-            </div>}
-     
+        <Navbar /> 
+           { 
+            <div key={item.id}>
+                <p>{item.name}</p>
+                <p>{item.description}</p>
+                <img src={item.image} />
+            </div>
+           }
     </div>
   )
 }
