@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { ContextData } from '../../context/ContextData'
 
 const Paginate = () => {
 
-    const [currentPage, setCurrentPage] = useState(1)
-
-
+    const {currentPage, setCurrentPage, totalPages} = useContext(ContextData)
+   
     const handlePrev = () => {
         if (currentPage < 2) {return}
         setCurrentPage(currentPage - 1)
     }
 
     const handleNext = () => {
+      if(currentPage < totalPages){
         setCurrentPage(currentPage + 1)
+      }
     }
 
   return (
