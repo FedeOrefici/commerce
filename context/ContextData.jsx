@@ -14,7 +14,7 @@ const ContextDataProvider = ({children}) => {
 
     //paginate
     const totalItems = products.length
-    const elementPerPage = 5
+    const elementPerPage = 3
     const totalPages = Math.ceil(totalItems / elementPerPage)
     //calculate pages
     const startIdx = (currentPage - 1) * elementPerPage
