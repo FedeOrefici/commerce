@@ -55,7 +55,6 @@
             }
             findProduct.isFavorite = true;
             setFavorites((prevDrink) => [...prevDrink, findProduct])
-
         }
 
         //del favs
@@ -67,8 +66,8 @@
                     return {...product, isFavorite: false}
                 }
                 return product;
+                })
             })
-        })
         }
 
 
@@ -87,7 +86,8 @@
                 totalPages,
                 currentItems,
                 setProducts,
-                originalProducts}}>
+                originalProducts
+                }}>
                 {children}
             </ContextData.Provider>
         )
