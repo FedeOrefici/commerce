@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div className="w-full flex items-center justify-center h-[200px] p-2">
+      <div className="w-full flex items-center justify-center h-[150px]">
         <SearchBar />
       </div>
       <div className="bg-slate-500 w-full h-screen flex items-center justify-center">
