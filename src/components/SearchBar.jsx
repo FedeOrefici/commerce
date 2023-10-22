@@ -29,8 +29,8 @@ const SearchBar = () => {
   }
 
   return (
-    <div className='flex items-center justify-center w-[350px]'>
-      <input onChange={(e) => setSearchDrink(e.target.value)} name='search' value={searchDrink} type='text' className='border p-2' />
+    <div className='flex items-center justify-center w-1/2'>
+      <input onChange={(e) => setSearchDrink(e.target.value)} name='search' value={searchDrink} type='text' className='border border-slate-400 p-2 w-1/2' />
       <button onClick={handleSearch} className='bg-slate-600 text-white p-2 rounded w-[150px]'>search</button>
       <button onClick={handleReset} className='bg-slate-600 text-white p-2 rounded w-[150px]'>reset</button>
     </div>

@@ -1,11 +1,13 @@
 import { useContext } from "react"
 import { ContextData } from "../context/ContextData";
 import Navbar from "../src/components/Navbar";
+import favs from '../src/assets/favs.svg'
+import noFavs from '../src/assets/nofavs.svg'
+
+
 const Favorites = () => {
 
   const { favorites, delFavs } = useContext(ContextData)
-
-  
 
   return (
     <div className="w-full h-screen mt-10">
@@ -13,8 +15,8 @@ const Favorites = () => {
         {favorites.length > 0 ? (favorites.map((fav) => (
           <div key={fav.id} className="bg-slate-300 w-[300px] h-[400px] border rounded p-4">
             <div onClick={() => delFavs(fav.id)} className="cursor-pointer">
-              {fav ? <span>favorito</span>
-              : <span>no favorito</span>} 
+              {fav ? <img src={favs} />
+              : <img src={noFavs} />} 
             </div>
             <p>{fav.name}</p>
             <img style={{width:'80px'}} src={fav.image} />
