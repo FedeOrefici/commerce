@@ -13,7 +13,8 @@
       <div className='flex items-center justify-center p-4 min-h-[600px] w-full'>
       {isSearching ? (<Loader />) : (
         currentItems?.map((product) => (
-          <div key={product.id} className="bg-slate-300 w-[300px] h-[400px] border rounded p-4 shadow-sm flex items-center justify-center flex-col">
+          <div key={product.id} 
+          className="bg-slate-300 w-[300px] h-[400px] border rounded p-4 shadow-sm flex items-center justify-center flex-col">
               <div onClick={()=> addFavs(product.id)} className='cursor-pointer'>
                 {product.isFavorite ? <img src={fav} />
                 : <img src={noFavs} />} 
